@@ -1,0 +1,32 @@
+name: Build PhilRice Forecast Studio EXE
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-windows-exe:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-build.txt
+
+      - name: Build EXE
+        run: python -m PyInstaller --clean --noconfirm PhilRice_Forecast_Studio.spec
+
+      - name: Upload EXE
+        uses: actions/upload-artifact@v4
+        with:
+          name: PhilRice_Forecast_Studio_Windows
+          path: dist/PhilRice_Forecast_Studio.exe
+          if-no-files-found: error
