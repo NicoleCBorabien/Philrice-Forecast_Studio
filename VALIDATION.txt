@@ -1,0 +1,12 @@
+Validation completed on Linux, 28 October 2026.
+- Python source compilation and JavaScript syntax checks passed.
+- Actual app workers completed both forecast types.
+- Weekly sample: 5 employees, 52 historical observations each, 52 future weekly observations each.
+- Monthly sample: 1 employee, all 11 tags, 12 future monthly observations.
+- Weekly raw RMSE independently recalculated from exported actuals and predictions.
+- Monthly forecasts sum to 100% in every future month.
+- Both template download routes return the original workbook bytes with renamed filenames.
+- Completed Excel output downloads return generated workbook bytes.
+- Outputs contain charts; Methodology and Candidate RMSE sheets are absent.
+- Approved single-column layout, template button, and RUN FORECAST controls verified in source.
+- Windows EXE compilation/launch and browser rendering were not tested in this environment.
